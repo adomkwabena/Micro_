@@ -106,7 +106,7 @@ void main(void)
         humidity = (humidity_raw / 65536.0) * 100.0;
         
         // Output parameters to serial port
-        printf("%.2f, %.2f\r\n", temperature, humidity);
+        printf("Temperature: %.2f\r\nHumidity: %.2f\r\n", temperature, humidity);
         
         // Acquire parameters approximately every second
         __delay_ms(1000);
