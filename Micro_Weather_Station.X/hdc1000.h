@@ -31,7 +31,7 @@
 #define HEATER_OFF             0x0000
 #define MODE_TEMP_OR_HUMID     0x0000
 #define MODE_TEMP_AND_HUMID    0x1000              
-#define BATTERY_STATUS_MASK    0x8000      
+#define BATTERY_STATUS_MASK    0x0800      
 #define TRES_11                0x0400
 #define TRES_14                0x0000
 #define HRES_8                 0x0200
@@ -39,8 +39,12 @@
 #define HRES_14                0x0000                 
 
 // Enables retransmission of a byte if something goes wrong,
-// the number of retries after a failure is HDC1000_I2C_TRY_MAX - 1
+// the number of retries after a failure is HDC1000_I2C_TRY_MAX
 #define HDC1000_I2C_TRY_MAX        5
+
+// Optional macros for data acquisition
+#define GET_TEMPERATURE()      hdc1000_get_reg(TEMPERATURE_REGISTER)
+#define GET_HUMIDITY()         hdc1000_get_reg(HUMIDITY_REGISTER)
 
 // Section: Module APIs
 
