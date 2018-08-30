@@ -24,7 +24,7 @@ void hdc1000_read(uint8_t length, uint8_t* data_ptr)
     uint8_t time_out = 0;
     
     while (status != I2C1_MESSAGE_FAIL && status != I2C1_MESSAGE_COMPLETE \
-           && time_out != HDC1000_I2C_TRY_MAX)
+           && time_out < HDC1000_I2C_TRY_MAX)
     {
         I2C1_MasterRead(data_ptr, length, HDC1000_ADDRESS, &status);
         // Wait for I2C transaction to complete
